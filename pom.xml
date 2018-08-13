@@ -13,6 +13,7 @@
         <module>study-springCloud-eurekaServer</module>
         <module>study-springCloud-config</module>
         <module>study-springCloud-service-user</module>
+        <module>study-springCloud-consul</module>
     </modules>
 
 </project>
