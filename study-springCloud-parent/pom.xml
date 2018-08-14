@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <groupId>com.ldg</groupId>
+    <artifactId>study-springCloud-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父Pom -->
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <druid.version>1.1.5</druid.version>
+        <lombok.version>1.16.18</lombok.version>
+        <maven.compiler.version>3.3</maven.compiler.version>
+        <springboot.version>1.5.8.RELEASE</springboot.version>
+        <springcloud.version>Dalston.SR4</springcloud.version>
+        <annotations.version>13.0</annotations.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 搭建Project必须条件 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 其它 -->
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>deploy-snapshots</id>
+            <url>http://192.168.2.251:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>deploy-releases</id>
+            <url>http://192.168.2.251:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>default-testCompile</id>
+                            <phase>test-compile</phase>
+                            <goals>
+                                <goal>testCompile</goal>
+                            </goals>
+                            <configuration>
+                                <skip>true</skip>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${springboot.version}</version>
+                    <configuration>
+                        <fork>true</fork>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!--<plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.3.2</version>
+                    <configuration>
+                        <configurationFile>src/main/resources/mybatis-grenerato/generatorConfig.xml</configurationFile>
+                        <verbose>true</verbose>
+                        <overwrite>true</overwrite>
+                    </configuration>
+
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.mybatis.generator</groupId>
+                            <artifactId>mybatis-generator-core</artifactId>
+                            <version>1.3.2</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>5.1.42</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>-->
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

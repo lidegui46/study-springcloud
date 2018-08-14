@@ -1,0 +1,18 @@
+server:
+  port: 1100
+spring:
+  application:
+    name: service-user
+  profiles:
+    # active: ""
+    include: "base"
+eureka:
+  client:
+    # 设置服务注册中心的URL
+    service-url:
+      defaultZone: http://study-springCloud-eureka:1000/eureka
+  instance:
+    # 是否启用IP地址显示
+    prefer-ip-address: true
+    # 实例名：IP:Port
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
