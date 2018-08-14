@@ -1,5 +1,0 @@
-spring:
-  cloud:
-    consul:
-      host: spring-consul
-      port: 1001
