@@ -1,8 +1,8 @@
 server:
-  port: 1110
+  port: 1141
 spring:
   application:
-    name: service-user
+    name: service-wallet
   profiles:
     # active: ""
     include: "base"
@@ -16,3 +16,5 @@ eureka:
     prefer-ip-address: true
     # 实例名：IP:Port
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+

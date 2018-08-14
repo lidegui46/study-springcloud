@@ -6,19 +6,27 @@
         <artifactId>study-springCloud-parent</artifactId>
         <groupId>com.ldg</groupId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../study-springCloud-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>study-springCloud-service-user</artifactId>
+    <artifactId>study-springCloud-feign-wallet</artifactId>
+
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+
+        <!-- 引入feign 依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>service-user</finalName>
+        <finalName>service-wallet</finalName>
     </build>
 </project>

@@ -13,7 +13,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 //@EnableEurekaClient         //和EnableDiscoveryClient相似
 @EnableDiscoveryClient  //和EnableEurekaClient相似
-@SpringBootApplication(scanBasePackages = "com.ldg.study.springCloud")
+@SpringBootApplication //(scanBasePackages = "com.ldg.study.springCloud")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
