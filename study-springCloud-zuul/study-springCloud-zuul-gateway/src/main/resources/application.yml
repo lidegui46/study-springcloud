@@ -1,0 +1,31 @@
+server:
+  port: 1150
+spring:
+  application:
+    name: zuul-gateway
+  profiles:
+    # active: ""
+    include: "base"
+eureka:
+  client:
+    # 设置服务注册中心的URL
+    service-url:
+      defaultZone: http://study-springCloud-eureka:1000/eureka
+  instance:
+    # 是否启用IP地址显示
+    prefer-ip-address: true
+    # 实例名：IP:Port
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+zuul:
+  # 禁止Zuul自动创建路由规则（原因：不想对外开放的服务也被外部访问到）
+  # 路由规则：默认情况下，Eureka上的服务都会被Zuul创建默认的映射关系来进行路由
+  ignored-services: '*'  # 过滤全部服务“'*'”; 指定服务“服务名”
+  routes:
+    # 此方式用于独立的域名访问
+#    api-url:
+#      path: /api-a/**
+#      url: http://localhost:9001
+    # 此方式用于服务访问，与eureka结合
+    feign-context:
+      path: /feign-context/**
+      serviceId: feign-context

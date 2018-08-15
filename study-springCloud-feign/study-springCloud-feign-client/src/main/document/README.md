@@ -1,5 +1,7 @@
 #Spring Cloud Feign
 方式二 ： feign 负载均衡
+
+    声明式服务
     
 1、项目结构
     

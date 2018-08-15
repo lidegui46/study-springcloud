@@ -1,5 +1,5 @@
 server:
-  port: 1110
+  port: 1150
 spring:
   application:
     name: ribbon-service
