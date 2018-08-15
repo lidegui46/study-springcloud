@@ -30,7 +30,7 @@
 
 4、访问入口
     项目：study-springCloud-ribbon-client
-    Url ：http://localhost:1145/order/getFeign
+    Url ：http://localhost:1120/order/get
 
 #Spring Cloud Hystrix 服务容错
 使用 断路器 进行 服务容错

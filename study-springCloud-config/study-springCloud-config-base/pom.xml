@@ -9,22 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>study-springCloud-zuul-gateway</artifactId>
+    <artifactId>study-springCloud-config-base</artifactId>
+
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>com.ldg</groupId>
-            <artifactId>study-springCloud-config-base</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>zuul-gateway</finalName>
-    </build>
-
 </project>

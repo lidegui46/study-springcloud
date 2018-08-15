@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      # 读取配置中的"{application}-dev.yml"文件
+      profile: dev
+  custom:
+    name: ldg-dev

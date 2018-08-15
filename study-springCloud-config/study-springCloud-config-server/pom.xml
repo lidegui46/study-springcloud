@@ -9,22 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>study-springCloud-zuul-gateway</artifactId>
+    <artifactId>study-springCloud-config-server</artifactId>
 
     <dependencies>
+        <!-- 引入config server依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+
+        <!-- 基础配置 -->
         <dependency>
             <groupId>com.ldg</groupId>
             <artifactId>study-springCloud-config-base</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
-        <finalName>zuul-gateway</finalName>
+        <finalName>config-server</finalName>
     </build>
-
 </project>

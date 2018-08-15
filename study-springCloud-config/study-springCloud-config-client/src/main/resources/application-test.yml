@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      profile: test
+  custom:
+    name: ldg-test

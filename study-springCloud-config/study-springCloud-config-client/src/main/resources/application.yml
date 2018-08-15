@@ -1,0 +1,11 @@
+server:
+  port: 1015
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: test
+    include: "base"
+  cloud:
+    config:
+      name: common,providerapi

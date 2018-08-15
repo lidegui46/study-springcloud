@@ -22,5 +22,13 @@
     负载均衡 和 容错保护 升级版
     
 
-参考地址：    
-    https://www.javazhiyin.com/category/springcloud    
+4、参考地址：
+
+    官网地址：
+    
+        中文：https://springcloud.cc/        
+       
+        英文：http://cloud.spring.io
+        
+    网上地址：
+        https://www.javazhiyin.com/category/springcloud    

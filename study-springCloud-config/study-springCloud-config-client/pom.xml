@@ -9,13 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>study-springCloud-config</artifactId>
+    <artifactId>study-springCloud-config-client</artifactId>
 
     <dependencies>
-        <!-- 引入config server依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+
+        <!-- 基础配置 -->
+        <dependency>
+            <groupId>com.ldg</groupId>
+            <artifactId>study-springCloud-config-base</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>config-client</finalName>
+    </build>
 </project>

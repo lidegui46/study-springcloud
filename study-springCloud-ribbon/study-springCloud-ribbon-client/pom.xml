@@ -13,8 +13,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <groupId>com.ldg</groupId>
+            <artifactId>study-springCloud-config-base</artifactId>
         </dependency>
 
         <!-- 实现负载均衡-->

@@ -6,7 +6,6 @@
         <artifactId>study-springCloud-parent</artifactId>
         <groupId>com.ldg</groupId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../study-springCloud-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,8 +13,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <groupId>com.ldg</groupId>
+            <artifactId>study-springCloud-config-base</artifactId>
         </dependency>
 
         <!-- project -->
