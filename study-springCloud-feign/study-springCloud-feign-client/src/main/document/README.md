@@ -30,6 +30,16 @@
     作用：
         可对接口，或方法进行服务降级
 
-4、访问入口
+4、实现方式
+
+    通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用并注册到服务注册中心
+    
+    通过spring-cloud-starter-eureka和@EnableDiscoveryClient使用注册中心并发现服务
+    
+    通过spring-cloud-starter-feign来实现负载均衡消费服务
+    
+    feign 通过RestTemplate访问     
+
+5、访问入口
     项目：study-springCloud-feign-client
     Url ：http://localhost:1145/order/getFeign
