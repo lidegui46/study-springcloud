@@ -1,16 +1,35 @@
 eureka:
+  # 微服务作为客户端时的配置信息
   client:
     # 设置服务注册中心的URL
     service-url:
       defaultZone: http://study-springCloud-eureka:1000/eureka
+  # 当前微服务实例信息
   instance:
-    # 是否启用IP地址显示
+    # 访问路径是否可以显示IP地址
     prefer-ip-address: true
-    # 实例名：IP:Port
+    # 微服务实例Id：IP:Port
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    # eureka server 至上一次收到client的心跳之后,等待下一次心跳的超时时间
+    lease-expiration-duration-in-seconds: 10
+    # eureka client 发送心跳给server端的频率
+    lease-renewal-interval-in-seconds: 5
 spring:
   cloud:
     # 配置中心
     config:
       # config-server 地址
       uri: http://localhost:1010
+
+# 微服务配置信息，通过Eureka配置中心查看,依赖“spring-boot-starter-actuator”
+# 配置文件中未配置变量时，显示“key”名称; 父级和子级都存在相同变量时，只能读取父级变量
+info:
+  company:
+    name: "ldg"
+  app:
+    application: ${spring.application.name}
+    port: ${server.port}
+    groupId: @project.groupId@
+    profile: ${spring.profiles.active}
+    configUrl: ${spring.cloud.config.uri}
+    application-profile: ${spring.cloud.config.name}-${spring.cloud.config.profile}.yml

@@ -6,5 +6,6 @@ spring:
   profiles:
     active: dev
     include: "base"
-
-
+  cloud:
+    config:
+      name: common,providerapi

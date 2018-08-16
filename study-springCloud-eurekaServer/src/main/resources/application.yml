@@ -8,6 +8,23 @@ spring:
   profiles:
     include: "base"
 eureka:
+  # 当前微服务实例信息
+  instance:
+    # eureka 服务名 / 主机名,  作用域：通信
+    hostname: study-springCloud-eureka
+    # 访问路径是否可以显示IP地址
+    prefer-ip-address: true
+    # 实例名：IP:Port
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  # 微服务作为服务端时的配置信息
+  server:
+    # 是否开启自我保护，true:不会剔除已注册的服务; false:根据心跳管理服务
+    enable-self-preservation: false
+    # 服务检测失效时间间隔，单位：毫秒
+    eviction-interval-timer-in-ms: 1000
+    #
+    use-read-only-response-cache: false
+  # 微服务作为客户端时的配置信息
   client:
     # 注册中心是否注册自己
     register-with-eureka: false
@@ -16,21 +33,3 @@ eureka:
     # 设置服务注册中心的URL
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-  instance:
-    # eureka 服务名 / 主机名,  作用域：通信
-    hostname: study-springCloud-eureka
-    # 是否启用IP地址显示
-    prefer-ip-address: true
-    # 实例名：IP:Port
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    # eureka server 至上一次收到client的心跳之后,等待下一次心跳的超时时间
-    lease-expiration-duration-in-seconds: 10
-    # eureka client 发送心跳给server端的频率
-    lease-renewal-interval-in-seconds: 5
-  server:
-    # 是否开启自我保护，true:不会提出已注册的服务; false:根据心跳管理服务
-    enable-self-preservation: false
-    # 服务心中时间，单位：毫秒
-    eviction-interval-timer-in-ms: 1000
-    #
-    use-read-only-response-cache: false
