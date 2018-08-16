@@ -26,10 +26,12 @@ eureka:
     use-read-only-response-cache: false
   # 微服务作为客户端时的配置信息
   client:
+    # 集群配置（配置eureka注册中心的信息，多个以“逗号”分隔）,如果不需要集群，则把配置改为"false"
+
     # 注册中心是否注册自己
-    register-with-eureka: false
+    register-with-eureka: true   # 实现集群
     # 注册中心是否主动去发现服务
-    fetch-registry: false
+    fetch-registry: true         # 实现集群
     # 设置服务注册中心的URL
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka,http://localhost:1009/eureka
