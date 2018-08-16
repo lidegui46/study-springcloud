@@ -27,3 +27,9 @@ Spring Cloud  中的“Discovery Service”有多种 实现
 如果选用的注册中心是eureka，那么就推荐@EnableEurekaClient;
 
 如果是其他的注册中心，那么推荐使用@EnableDiscoveryClient
+
+4、集群
+
+    4.1、开启“自我注册”和“自我发现”
+    4.2、“defaultZone”配置eureka服务端地址，多个服务以“逗号”分隔
+    

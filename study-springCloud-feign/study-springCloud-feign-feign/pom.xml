@@ -28,9 +28,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
-        <finalName>service-wallet</finalName>
+        <finalName>feign-feign</finalName>
     </build>
 </project>

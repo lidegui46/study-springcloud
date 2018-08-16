@@ -31,6 +31,6 @@
     </dependencies>
 
     <build>
-        <finalName>feign-wallet</finalName>
+        <finalName>feign-context</finalName>
     </build>
 </project>

@@ -1,4 +1,4 @@
-#Spring Cloud Ribbon
+#Spring Cloud Ribbon Client
 负载均衡
 
 1、项目结构
@@ -31,6 +31,18 @@
 4、访问入口
     项目：study-springCloud-ribbon-client
     Url ：http://localhost:1120/order/get
+
+5、工作步骤
+    
+    第一步：
+        先选择 EurekaServer ,它优先选择在同一个区域内负载较少的server. 
+    
+    第二步：
+        根据用户指定的策略，在从server取到的服务注册列表中选择一个地址。 
+    其中Ribbon提供了多种策略：比如轮询、随机和根据响应时间加权。
+    
+6、自定义负载均衡算法
+    参考地址：https://www.javazhiyin.com/5130.html
 
 #Spring Cloud Hystrix 服务容错
 使用 断路器 进行 服务容错

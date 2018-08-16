@@ -6,3 +6,14 @@ spring:
   profiles:
     active: dev
     include: "base"
+# 断路器配置
+feign:
+  hystrix:
+    enabled: true
+
+## 断路器配置
+#hystrix:
+#  metrics:
+#    enabled: true
+#    # 刷新间隔
+#    polling-interval-ms: 2000
