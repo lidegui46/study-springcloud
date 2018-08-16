@@ -1,0 +1,10 @@
+server:
+  port: 1160
+spring:
+  application:
+    name: bus-kafka-provider
+  profiles:
+    active: dev
+    include: "base"
+
+

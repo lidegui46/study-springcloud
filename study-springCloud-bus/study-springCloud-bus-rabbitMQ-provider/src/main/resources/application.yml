@@ -1,0 +1,10 @@
+server:
+  port: 1166
+spring:
+  application:
+    name: bus-rabbitMQ-provider
+  profiles:
+    active: dev
+    include: "base"
+
+

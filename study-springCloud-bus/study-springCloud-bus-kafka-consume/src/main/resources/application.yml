@@ -1,0 +1,10 @@
+server:
+  port: 1161
+spring:
+  application:
+    name: bus-kafka-consumer
+  profiles:
+    active: dev
+    include: "base"
+
+

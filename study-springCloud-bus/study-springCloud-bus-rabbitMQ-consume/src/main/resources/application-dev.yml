@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    config:
+      profile: dev
+    bus:
+      trace:
+        # 开启事件跟踪，包含：所有事件和所有ack
+        enabled: true
+      enabled: true
+  rabbitmq:
+    host: 192.168.4.31
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
+    publisher-returns: true

@@ -1,0 +1,10 @@
+server:
+  port: 1165
+spring:
+  application:
+    name: bus-rabbitMQ-consume
+  profiles:
+    active: dev
+    include: "base"
+
+
