@@ -6,10 +6,20 @@ spring:
   profiles:
     active: dev
     include: "base"
+
 # 断路器配置
 feign:
   hystrix:
     enabled: true
+  compression:
+    #请求和响应GZIP压缩支持
+    request:
+      enabled: true
+      #支持压缩的mime types
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
 
 ## 断路器配置
 #hystrix:

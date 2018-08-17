@@ -1,6 +1,6 @@
 package com.ldg.study.springCloud.feign.context.controller;
 
-import com.ldg.study.springCloud.feign.feign.service.WalletFeign;
+import com.ldg.study.springCloud.feign.feign.feign.HystrixFacllbackFeign;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @create date： 2018/8/14
  */
 @RestController
-public class HelloController implements WalletFeign {
+public class HelloController implements HystrixFacllbackFeign {
     @Override
     public String hello(String code)
     {

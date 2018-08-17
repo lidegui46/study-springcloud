@@ -1,4 +1,4 @@
-spring:
-  cloud:
-    config:
-      profile: dev
+#spring:
+#  cloud:
+#    config:
+#      profile: dev

@@ -17,12 +17,31 @@
             <artifactId>study-springCloud-config-base</artifactId>
         </dependency>
 
+
+        <!--&lt;!&ndash; 引入feign 依赖，作用：用于 Feign 日志，详见“BaseFeignConfiguration” &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-feign</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- 实现服务容错保护，必须放在Feign项目中？-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-hystrix</artifactId>-->
+        <!--</dependency>-->
+
+
         <!-- project -->
         <dependency>
             <groupId>com.ldg</groupId>
             <artifactId>study-springCloud-feign-feign</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.ldg</groupId>-->
+            <!--<artifactId>study-springCloud-feign-hystrix-factory</artifactId>-->
+            <!--<version>1.0.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>

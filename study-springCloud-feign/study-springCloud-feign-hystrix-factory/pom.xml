@@ -2,14 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ldg</groupId>
+    <artifactId>study-springCloud-feign-hystrix-factory</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <parent>
         <artifactId>study-springCloud-parent</artifactId>
         <groupId>com.ldg</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>study-springCloud-feign-context</artifactId>
 
     <dependencies>
         <dependency>
@@ -17,26 +21,16 @@
             <artifactId>study-springCloud-config-base</artifactId>
         </dependency>
 
+        <!-- Java HTTP 客户端开发的工具的模块 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
 
-        <!-- project dependency -->
+        <!-- Hystrix 模块 -->
         <dependency>
-            <groupId>com.ldg</groupId>
-            <artifactId>study-springCloud-feign-feign</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.ldg</groupId>
-            <artifactId>study-springCloud-feign-hystrix-factory</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>feign-context</finalName>
-    </build>
 </project>
