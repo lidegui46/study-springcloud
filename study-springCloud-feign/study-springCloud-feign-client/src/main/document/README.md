@@ -45,3 +45,8 @@
 5、访问入口
     项目：study-springCloud-feign-client
     Url ：http://localhost:1145/order/getFeign
+    
+6、熔断回调：fallback 与 fallbackFactory区别
+    
+    fallback：不能获取熔断后的信息
+    fallbackFactory：可获取熔后的信息

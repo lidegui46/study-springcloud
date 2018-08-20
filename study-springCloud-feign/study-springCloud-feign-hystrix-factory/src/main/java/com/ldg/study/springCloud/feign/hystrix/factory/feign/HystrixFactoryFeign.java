@@ -1,5 +1,6 @@
 package com.ldg.study.springCloud.feign.hystrix.factory.feign;
 
+import com.ldg.study.springCloud.feign.hystrix.factory.configuration.HystrixFallbackFactoryConfiguration;
 import com.ldg.study.springCloud.feign.hystrix.factory.fallbackFactory.HystrixFallbackFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @version 0.0.1
  * @date 2017/9/24
  */
-@FeignClient(name = "feign-context", /*fallback = HystrixClientFallback.class,*/ fallbackFactory = HystrixFallbackFactory.class)
+@FeignClient(name = "feign-context"
+        , configuration = HystrixFallbackFactoryConfiguration.class
+        , fallbackFactory = HystrixFallbackFactory.class)
 public interface HystrixFactoryFeign {
 
     /**

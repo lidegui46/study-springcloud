@@ -9,6 +9,6 @@ spring:
   cloud:
     config:
       name: common,providerapi
-feign:
-  hystrix:
-    enabled: true
+#feign:
+#  hystrix:
+#    enabled: true

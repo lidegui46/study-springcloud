@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 public class FeignController {
 
     @Resource
-    private HystrixFacllbackFeign walletFeign;
+    private HystrixFacllbackFeign hystrixFacllbackFeign;
 
     /**
      * http://localhost:1145/order/getFeign
@@ -26,10 +26,10 @@ public class FeignController {
     @GetMapping(value = "getFeign")
     @HystrixCommand(fallbackMethod = "aaa")
     public String getFeign() {
-        return walletFeign.hello("dd");
+        return hystrixFacllbackFeign.hello("dd");
     }
 
-    public String aa(){
-        return "err";
+    public String aaa(){
+        return "error feign fallback";
     }
 }
