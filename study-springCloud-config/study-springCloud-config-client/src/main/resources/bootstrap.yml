@@ -1,28 +1,28 @@
-#spring:
-#  # dev 的配置
-#  profiles: dev
-#  cloud:
-#    # 配置中心
-#    config:
-#      # config-server 地址
-#      uri: http://localhost:1010
-#      # application name
-#      name: common,providerapi
-#      # profile name
-#      profile: dev
-#
-## 添加“---”后，运行不报错，不知道原因
-#---
-#
-#spring:
-#  # test 的配置
-#  profiles: test
-#  cloud:
-#    # 配置中心
-#    config:
-#      # config-server 地址
-#      uri: http://localhost:1010
-#      # application name
-#      name: common,providerapi
-#      # profile name
-#      profile: test
+spring:
+  # dev 的配置
+  profiles: dev
+  cloud:
+    # 配置中心
+    config:
+      # config-server 地址
+      uri: http://localhost:1010
+      # application name
+      name: common,providerapi
+      # profile name
+      profile: dev
+
+# 添加“---”后，运行不报错，不知道原因
+---
+
+spring:
+  # test 的配置
+  profiles: test
+  cloud:
+    # 配置中心
+    config:
+      # config-server 地址
+      uri: http://localhost:1010
+      # application name
+      name: common,providerapi
+      # profile name
+      profile: test

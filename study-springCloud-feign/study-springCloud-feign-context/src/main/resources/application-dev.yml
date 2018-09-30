@@ -2,3 +2,6 @@ spring:
   cloud:
     config:
       profile: dev
+
+  resources:
+    static-locations: classpath:/,classpath:/resources,classpath:/META-INF/resources

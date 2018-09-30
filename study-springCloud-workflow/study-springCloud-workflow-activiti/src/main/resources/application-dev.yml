@@ -1,0 +1,32 @@
+spring:
+#  cloud:
+#    config:
+#      profile: dev
+  activiti:
+    database-schema: ACT
+    database-schema-update: true
+    check-process-definitions: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.2.251:3206/db_activiti?characterEncoding=utf8&useSSL=true
+    username: root
+    password: root1234
+    filters: stat
+    maxActive: 50
+    initialSize: 10
+    maxWait: 60000
+    minIdle: 10
+    initSql: ["set names utf8mb4;"]
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    maxOpenPreparedStatements: 20
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 100
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1538271543607" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1538271543607" name="" targetNamespace="http://www.activiti.org/testm1538271543607" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="marketCounselorSubscribeCustomerProcess" isClosed="false" isExecutable="true" name="市场顾问预约客服" processType="None">
+    <startEvent id="_2" name="StartEvent"/>
+    <endEvent id="_3" name="EndEvent"/>
+    <userTask activiti:candidateUsers="#{applyUserIds}" activiti:exclusive="true" id="submitApply" name="市场顾问提交预约申请"/>
+    <userTask activiti:exclusive="true" id="customerInitAuth" name="客服初审"/>
+    <userTask activiti:exclusive="true" id="customerReAuth" name="客服复审"/>
+    <sequenceFlow id="_7" sourceRef="_2" targetRef="submitApply"/>
+    <sequenceFlow id="_8" sourceRef="submitApply" targetRef="customerInitAuth"/>
+    <sequenceFlow id="_9" sourceRef="customerInitAuth" targetRef="customerReAuth"/>
+    <sequenceFlow id="_4" sourceRef="customerReAuth" targetRef="_3"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="marketCounselorSubscribeCustomerProcess">
+      <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
+        <dc:Bounds height="32.0" width="32.0" x="45.0" y="300.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" id="Shape-_3">
+        <dc:Bounds height="32.0" width="32.0" x="815.0" y="300.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="submitApply" id="Shape-submitApply">
+        <dc:Bounds height="55.0" width="85.0" x="165.0" y="290.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="customerInitAuth" id="Shape-customerInitAuth">
+        <dc:Bounds height="55.0" width="85.0" x="355.0" y="290.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="customerReAuth" id="Shape-customerReAuth">
+        <dc:Bounds height="55.0" width="85.0" x="560.0" y="290.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_4" id="BPMNEdge__4" sourceElement="customerReAuth" targetElement="_3">
+        <di:waypoint x="645.0" y="317.5"/>
+        <di:waypoint x="815.0" y="316.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="_2" targetElement="submitApply">
+        <di:waypoint x="77.0" y="316.0"/>
+        <di:waypoint x="165.0" y="317.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="submitApply" targetElement="customerInitAuth">
+        <di:waypoint x="250.0" y="317.5"/>
+        <di:waypoint x="355.0" y="317.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9" sourceElement="customerInitAuth" targetElement="customerReAuth">
+        <di:waypoint x="440.0" y="317.5"/>
+        <di:waypoint x="560.0" y="317.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
