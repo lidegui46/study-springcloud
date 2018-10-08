@@ -3,6 +3,7 @@ spring:
 #    config:
 #      profile: dev
   activiti:
+    database-type: mysql
     database-schema: ACT
     database-schema-update: true
     check-process-definitions: true

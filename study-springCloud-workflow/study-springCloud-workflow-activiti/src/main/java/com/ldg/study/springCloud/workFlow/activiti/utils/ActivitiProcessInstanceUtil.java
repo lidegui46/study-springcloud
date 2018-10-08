@@ -1,6 +1,7 @@
 package com.ldg.study.springCloud.workFlow.activiti.utils;
 
 import org.activiti.engine.RuntimeService;
+import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.springframework.stereotype.Component;
 
@@ -26,9 +27,54 @@ public class ActivitiProcessInstanceUtil {
      * 启动一个流程
      *
      * @param processDefinitionId 流程定义的Id
+     * @param businessKey         业务标识Key
      * @param variables           启动流程的变量
      */
-    public ProcessInstance start(String processDefinitionId, Map<String, Object> variables) {
-        return runtimeService.startProcessInstanceById(processDefinitionId, variables);
+    public ProcessInstance startInstanceById(String processDefinitionId, String businessKey, Map<String, Object> variables) {
+        ExecutionEntity executionEntity = (ExecutionEntity) runtimeService.startProcessInstanceById(processDefinitionId, businessKey, variables);
+        return (ExecutionEntity) runtimeService.startProcessInstanceById(processDefinitionId, businessKey, variables);
+    }
+
+    /**
+     * 启动一个流程
+     *
+     * @param processDefinitionId 流程定义的Id
+     * @param businessKey         业务标识Key
+     * @param variables           启动流程的变量
+     */
+    public ExecutionEntity startExecuteionById(String processDefinitionId, String businessKey, Map<String, Object> variables) {
+        return (ExecutionEntity) runtimeService.startProcessInstanceById(processDefinitionId, businessKey, variables);
+    }
+
+    /**
+     * 启动一个流程
+     *
+     * @param processDefinitionKey 流程定义的Key
+     * @param businessKey          业务标识Key
+     * @param variables            启动流程的变量
+     */
+    public ProcessInstance startInstanceByKey(String processDefinitionKey, String businessKey, Map<String, Object> variables) {
+        return runtimeService.startProcessInstanceByKey(processDefinitionKey, businessKey, variables);
+    }
+
+    /**
+     * 启动一个流程
+     *
+     * @param processDefinitionKey 流程定义的Key
+     * @param businessKey          业务标识Key
+     * @param variables            启动流程的变量
+     */
+    public ExecutionEntity startExecutionByKey(String processDefinitionKey, String businessKey, Map<String, Object> variables) {
+        return (ExecutionEntity) runtimeService.startProcessInstanceByKey(processDefinitionKey, businessKey, variables);
+    }
+
+    /**
+     * 查找流程实例
+     *
+     * @param instanceId 流程实例编号
+     * @return
+     */
+    public ProcessInstance find(String instanceId) {
+        return runtimeService.createProcessInstanceQuery().processInstanceId(instanceId).singleResult();
     }
 }

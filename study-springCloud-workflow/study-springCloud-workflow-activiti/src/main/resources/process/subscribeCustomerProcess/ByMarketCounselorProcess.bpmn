@@ -3,9 +3,9 @@
   <process id="marketCounselorSubscribeCustomerProcess" isClosed="false" isExecutable="true" name="市场顾问预约客服" processType="None">
     <startEvent id="_2" name="StartEvent"/>
     <endEvent id="_3" name="EndEvent"/>
-    <userTask activiti:candidateUsers="#{applyUserIds}" activiti:exclusive="true" id="submitApply" name="市场顾问提交预约申请"/>
-    <userTask activiti:exclusive="true" id="customerInitAuth" name="客服初审"/>
-    <userTask activiti:exclusive="true" id="customerReAuth" name="客服复审"/>
+    <userTask activiti:assignee="#{applyUserId}" activiti:exclusive="true" id="submitApply" name="市场顾问提交预约申请"/>
+    <userTask activiti:candidateUsers="#{approveUserIds}" activiti:exclusive="true" id="customerInitAuth" name="客服初审"/>
+    <userTask activiti:candidateUsers="#{proviUserIds}" activiti:exclusive="true" id="customerReAuth" name="客服复审"/>
     <sequenceFlow id="_7" sourceRef="_2" targetRef="submitApply"/>
     <sequenceFlow id="_8" sourceRef="submitApply" targetRef="customerInitAuth"/>
     <sequenceFlow id="_9" sourceRef="customerInitAuth" targetRef="customerReAuth"/>
@@ -14,19 +14,19 @@
   <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
     <bpmndi:BPMNPlane bpmnElement="marketCounselorSubscribeCustomerProcess">
       <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
-        <dc:Bounds height="32.0" width="32.0" x="45.0" y="300.0"/>
+        <dc:Bounds height="32.0" width="32.0" x="100.0" y="300.0"/>
         <bpmndi:BPMNLabel>
           <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_3" id="Shape-_3">
-        <dc:Bounds height="32.0" width="32.0" x="815.0" y="300.0"/>
+        <dc:Bounds height="32.0" width="32.0" x="780.0" y="305.0"/>
         <bpmndi:BPMNLabel>
           <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="submitApply" id="Shape-submitApply">
-        <dc:Bounds height="55.0" width="85.0" x="165.0" y="290.0"/>
+        <dc:Bounds height="55.0" width="85.0" x="180.0" y="290.0"/>
         <bpmndi:BPMNLabel>
           <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
@@ -45,20 +45,20 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_4" id="BPMNEdge__4" sourceElement="customerReAuth" targetElement="_3">
         <di:waypoint x="645.0" y="317.5"/>
-        <di:waypoint x="815.0" y="316.0"/>
+        <di:waypoint x="780.0" y="321.0"/>
         <bpmndi:BPMNLabel>
           <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="_2" targetElement="submitApply">
-        <di:waypoint x="77.0" y="316.0"/>
-        <di:waypoint x="165.0" y="317.5"/>
+        <di:waypoint x="132.0" y="316.0"/>
+        <di:waypoint x="180.0" y="317.5"/>
         <bpmndi:BPMNLabel>
           <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="submitApply" targetElement="customerInitAuth">
-        <di:waypoint x="250.0" y="317.5"/>
+        <di:waypoint x="265.0" y="317.5"/>
         <di:waypoint x="355.0" y="317.5"/>
         <bpmndi:BPMNLabel>
           <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>

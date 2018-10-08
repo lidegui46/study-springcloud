@@ -1,7 +1,9 @@
 package com.ldg.study.springCloud.workFlow.activiti.utils;
 
 import org.activiti.engine.TaskService;
+import org.activiti.engine.impl.db.DbSchemaCreate;
 import org.activiti.engine.task.Task;
+import org.activiti.engine.task.TaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,7 +35,17 @@ public class ActivitiProcessTaskUtil {
         taskService.complete(taskId, variables);
     }
 
-    public List<Task> findAssignees(String userId){
+    public List<Task> finds(String userId) {
+        List<Task> list = taskService
+                .createTaskQuery()
+                .taskCandidateOrAssigned(userId)
+                .orderByTaskCreateTime()
+                .desc()
+                .list();
+        return list;
+    }
+
+    public List<Task> findAssignees(String userId) {
         List<Task> list = taskService
                 .createTaskQuery()
                 .taskAssignee(userId)
@@ -43,7 +55,7 @@ public class ActivitiProcessTaskUtil {
         return list;
     }
 
-    public List<Task> findCandidateUser(String userId){
+    public List<Task> findCandidateUser(String userId) {
         List<Task> list = taskService
                 .createTaskQuery()
                 .taskCandidateUser(userId)
@@ -51,5 +63,13 @@ public class ActivitiProcessTaskUtil {
                 .desc()
                 .list();
         return list;
+    }
+
+    public List<Task> findTasksByBusinessKey(String businessKey) {
+        return taskService.createTaskQuery().processInstanceBusinessKey(businessKey).list();
+    }
+
+    public Task findTaskByBusinessKey(String businessKey) {
+        return taskService.createTaskQuery().processInstanceBusinessKey(businessKey).singleResult();
     }
 }

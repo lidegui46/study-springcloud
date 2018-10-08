@@ -2,10 +2,13 @@ package com.ldg.study.springCloud.workFlow.activiti.utils;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Activiti工具类
@@ -57,5 +60,24 @@ public class ActivitiDeployUtil {
      */
     public void deleteDeploymentAndInstance(String deploymentId) {
         deleteDeployment(deploymentId, true);
+    }
+
+
+    /**
+     * 根据部署编号查找流程定义编号
+     *
+     * @param deployId 部署编号
+     */
+    public ProcessDefinition findDefinitionId(String deployId) {
+        return processEngine.getRepositoryService().createProcessDefinitionQuery().deploymentId(deployId).desc().singleResult();
+    }
+
+    /**
+     * 根据部署编号查找流程定义编号
+     *
+     * @param deployId 部署编号
+     */
+    public List<ProcessDefinition> findDefinitionIds(String deployId) {
+        return processEngine.getRepositoryService().createProcessDefinitionQuery().deploymentId(deployId).desc().list();
     }
 }

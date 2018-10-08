@@ -27,7 +27,8 @@ public final class ActivitiConfigProperties {
         private String databaseSchemaUpdate;
         @Value("${database-schema}")
         private String databaseSchema;
-
+        @Value("${database-type}")
+        private String databaseType;
         @Value("${check-process-definitions}")
         private String checkProcessDefinitions;
     }

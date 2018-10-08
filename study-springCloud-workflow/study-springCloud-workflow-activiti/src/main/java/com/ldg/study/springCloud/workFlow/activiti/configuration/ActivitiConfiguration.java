@@ -35,9 +35,9 @@ public class ActivitiConfiguration {
         SpringProcessEngineConfiguration config = new SpringProcessEngineConfiguration();
         config.setDataSource(druidDataSource);
         config.setTransactionManager(transactionManager);
-        config.setDatabaseType("mysql");
+        config.setDatabaseType(activitiConfigProperties.getActiviti().getDatabaseType());
         //自动表(下次启动时，不会删除表或数据)
-        config.setDatabaseSchemaUpdate("true");
+        config.setDatabaseSchemaUpdate(activitiConfigProperties.getActiviti().getDatabaseSchemaUpdate());
         return config;
     }
 }
