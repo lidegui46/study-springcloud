@@ -54,6 +54,13 @@ public class ActivitiDeployUtil {
     }
 
     /**
+     * 查找所有部署
+     */
+    public List<Deployment> findsDeploy() {
+        return processEngine.getRepositoryService().createDeploymentQuery().list();
+    }
+
+    /**
      * 删除部署
      *
      * @param deploymentId 部署编号

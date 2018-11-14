@@ -1,12 +1,14 @@
 package com.ldg.study.springCloud.workFlow.activiti.utils;
 
+import org.activiti.engine.HistoryService;
 import org.activiti.engine.TaskService;
-import org.activiti.engine.impl.db.DbSchemaCreate;
 import org.activiti.engine.task.Task;
 import org.activiti.engine.task.TaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +35,14 @@ public class ActivitiProcessTaskUtil {
      */
     public void complete(String taskId, Map<String, Object> variables) {
         taskService.complete(taskId, variables);
+    }
+
+    public Task findById(String taskId) {
+        TaskQuery taskQuery = taskService.createTaskQuery().taskId(taskId);
+        if (ObjectUtils.isEmpty(taskQuery)) {
+            return null;
+        }
+        return taskQuery.singleResult();
     }
 
     public List<Task> finds(String userId) {
@@ -69,6 +79,12 @@ public class ActivitiProcessTaskUtil {
         return taskService.createTaskQuery().processInstanceBusinessKey(businessKey).list();
     }
 
+    /**
+     * 根据业务Key获取待执行的任务
+     *
+     * @param businessKey
+     * @return
+     */
     public Task findTaskByBusinessKey(String businessKey) {
         return taskService.createTaskQuery().processInstanceBusinessKey(businessKey).singleResult();
     }

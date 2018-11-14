@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1539225285818" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="SubscribeService" isClosed="false" isExecutable="true" processType="None">
+    <startEvent id="_2" name="StartEvent"/>
+    <userTask activiti:candidateUsers="#{applyUserId}" activiti:exclusive="true" id="apply" name="顾问发起预约申请"/>
+    <sequenceFlow id="_4" sourceRef="_2" targetRef="apply"/>
+    <userTask activiti:candidateUsers="#{auditUserId}" activiti:exclusive="true" id="initAudit" name="客服初审">
+      <extensionElements>
+        <activiti:taskListener class="com.ldg.study.springCloud.workFlow.activiti.listener.subscribeService.ServiceInitAuditListener" event="create"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="_6" sourceRef="apply" targetRef="initAudit"/>
+    <userTask activiti:candidateUsers="#{reAuditUserId}" activiti:exclusive="true" id="reAudit" name="客服复审"/>
+    <sequenceFlow id="_8" name="客户初审成功" sourceRef="initAudit" targetRef="reAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${audit=="success"}]]></conditionExpression>
+    </sequenceFlow>
+    <endEvent id="_9" name="EndEvent"/>
+    <sequenceFlow id="_3" name="客服复审成功" sourceRef="reAudit" targetRef="_9">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${audit=="success"}]]></conditionExpression>
+    </sequenceFlow>
+    <userTask activiti:candidateUsers="#{applyUserId}" activiti:exclusive="true" id="reApplyByInitAudit" name="初审失败，顾问再次申请"/>
+    <sequenceFlow id="_7" name="客服初审失败" sourceRef="initAudit" targetRef="reApplyByInitAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${audit=="fail"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_10" sourceRef="reApplyByInitAudit" targetRef="initAudit"/>
+    <userTask activiti:candidateUsers="#{applyUserId}" activiti:exclusive="true" id="reApplyByReAudit" name="复审失败，顾问再次申请"/>
+    <sequenceFlow id="_5" name="客服复审失败" sourceRef="reAudit" targetRef="reApplyByReAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${audit=="fail"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_11" sourceRef="reApplyByReAudit" targetRef="reAudit">
+      <documentation id="_11_D_1"/>
+      <conditionExpression xsi:type="tFormalExpression"/>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="SubscribeService">
+      <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
+        <omgdc:Bounds height="32.0" width="32.0" x="45.0" y="275.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="apply" id="Shape-apply">
+        <omgdc:Bounds height="55.0" width="85.0" x="190.0" y="270.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="initAudit" id="Shape-initAudit">
+        <omgdc:Bounds height="55.0" width="85.0" x="390.0" y="270.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="reAudit" id="Shape-reAudit">
+        <omgdc:Bounds height="55.0" width="85.0" x="600.0" y="270.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9" id="Shape-_9">
+        <omgdc:Bounds height="32.0" width="32.0" x="835.0" y="285.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="reApplyByInitAudit" id="Shape-reApplyByInitAudit">
+        <omgdc:Bounds height="55.0" width="85.0" x="390.0" y="410.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="reApplyByReAudit" id="Shape-reApplyByReAudit">
+        <omgdc:Bounds height="55.0" width="85.0" x="605.0" y="410.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_3" id="BPMNEdge__3" sourceElement="reAudit" targetElement="_9">
+        <omgdi:waypoint x="685.0" y="297.5"/>
+        <omgdi:waypoint x="835.0" y="301.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4" id="BPMNEdge__4" sourceElement="_2" targetElement="apply">
+        <omgdi:waypoint x="77.0" y="291.0"/>
+        <omgdi:waypoint x="190.0" y="297.5"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_5" id="BPMNEdge__5" sourceElement="reAudit" targetElement="reApplyByReAudit">
+        <omgdi:waypoint x="645.0" y="325.0"/>
+        <omgdi:waypoint x="645.0" y="410.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6" sourceElement="apply" targetElement="initAudit">
+        <omgdi:waypoint x="275.0" y="297.5"/>
+        <omgdi:waypoint x="390.0" y="297.5"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7" sourceElement="initAudit" targetElement="reApplyByInitAudit">
+        <omgdi:waypoint x="432.5" y="325.0"/>
+        <omgdi:waypoint x="432.5" y="410.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="initAudit" targetElement="reAudit">
+        <omgdi:waypoint x="475.0" y="297.5"/>
+        <omgdi:waypoint x="600.0" y="297.5"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="reApplyByReAudit" targetElement="reAudit">
+        <omgdi:waypoint x="605.0" y="437.5"/>
+        <omgdi:waypoint x="550.0" y="360.0"/>
+        <omgdi:waypoint x="600.0" y="297.5"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="reApplyByInitAudit" targetElement="initAudit">
+        <omgdi:waypoint x="390.0" y="437.5"/>
+        <omgdi:waypoint x="335.0" y="355.0"/>
+        <omgdi:waypoint x="390.0" y="297.5"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
