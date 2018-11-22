@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>study-springCloud-zuul-gateway</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>study-springCloud-registerCenter-zookeeper</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,13 +18,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.11</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>zuul-gateway</finalName>
+        <finalName>registerCenter-zookeeper</finalName>
     </build>
-
 </project>
