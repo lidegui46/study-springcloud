@@ -13,6 +13,11 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 public class EchoServer {
+
+    public static void main(String[] args) throws InterruptedException {
+        new EchoServer().bind(5555);
+    }
+
     public void bind(int port) throws InterruptedException {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -41,10 +46,6 @@ public class EchoServer {
             bossGroup.shutdownGracefully().sync();
             workerGroup.shutdownGracefully().sync();
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        new EchoServer().bind(5555);
     }
 
     private class EchoServerHandler extends ChannelInboundHandlerAdapter {

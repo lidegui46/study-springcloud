@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过页面向服务端发起websocket请求，服务端返回数据</title>
+
+    <script type="text/javascript">
+        /* 注意浏览器js的执行顺序 */
+        var wsServer = 'ws://localhost:8080/websocketTest1'; //服务器地址
+        var websocket = new WebSocket(wsServer); //创建WebSocket对象
+
+        websocket.onopen = function (evt) {
+            document.getElementById("btnSend").disabled = false;
+        }
+        websocket.onmessage = function (evt) {
+            document.getElementById("taMessages").value += "\r\n"+ evt.data;
+        }
+        websocket.onclose = function (evt) {
+
+        }
+        websocket.onerror = function (evt) {
+
+        }
+
+        function sendMessage() {
+            var message = document.getElementById('btnMessage').value;
+            console.info(websocket.readyState +" "+WebSocket.OPEN)
+            if (websocket.readyState == WebSocket.OPEN) {
+                websocket.send(message);
+            }
+            document.getElementById('btnMessage').value = '';
+        }
+    </script>
+</head>
+<body>
+    <div style="margin:0 auto; width: 800px;">
+        　　<textarea id="taMessages" style="width: 500px; height: 200px;" readonly></textarea>
+        　　<br/>
+        　　<input id="btnMessage" type="text" style="float:left; width:300px;"/>
+        　　<input id="btnSend" type="button" value="Send"  onclick="sendMessage();"/>
+    </div>
+</body>
+</html>
