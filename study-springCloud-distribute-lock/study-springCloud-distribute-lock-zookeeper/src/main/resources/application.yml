@@ -1,0 +1,10 @@
+server:
+  port: 1168
+spring:
+  application:
+    name: distribute-lock-zookeeper
+  profiles:
+    active: dev
+    include: "base"
+
+

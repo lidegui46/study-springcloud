@@ -1,0 +1,10 @@
+server:
+  port: 1167
+spring:
+  application:
+    name: distribute-lock-redisson
+  profiles:
+    active: dev
+    include: "base"
+
+
