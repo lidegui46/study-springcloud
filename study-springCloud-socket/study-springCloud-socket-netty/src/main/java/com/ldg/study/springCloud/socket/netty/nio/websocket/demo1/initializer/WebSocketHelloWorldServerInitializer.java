@@ -1,12 +1,11 @@
-package com.ldg.study.springCloud.socket.netty.nio.websocket.initializer;
+package com.ldg.study.springCloud.socket.netty.nio.websocket.demo1.initializer;
 
-import com.ldg.study.springCloud.socket.netty.nio.websocket.handler.WebSocketHelloWorldServerHandler;
+import com.ldg.study.springCloud.socket.netty.nio.websocket.demo1.handler.WebSocketHelloWorldServerHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
-import io.netty.handler.codec.http.HttpServerExpectContinueHandler;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.stream.ChunkedWriteHandler;
 

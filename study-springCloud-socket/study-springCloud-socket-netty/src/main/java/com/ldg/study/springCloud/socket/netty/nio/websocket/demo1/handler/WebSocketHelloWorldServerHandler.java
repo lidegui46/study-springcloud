@@ -1,6 +1,6 @@
-package com.ldg.study.springCloud.socket.netty.nio.websocket.handler;
+package com.ldg.study.springCloud.socket.netty.nio.websocket.demo1.handler;
 
-import com.ldg.study.springCloud.socket.netty.nio.websocket.config.ChannelContext;
+import com.ldg.study.springCloud.socket.netty.nio.websocket.demo1.config.ChannelContext;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;

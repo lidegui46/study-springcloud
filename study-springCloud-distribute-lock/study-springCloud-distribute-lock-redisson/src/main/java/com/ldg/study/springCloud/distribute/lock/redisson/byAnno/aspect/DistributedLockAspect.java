@@ -29,7 +29,7 @@ public class DistributedLockAspect {
     @Autowired
     private RedissonDistributedLocker redissonDistributedLocker;
 
-    @Pointcut("@annotation(ldg.study.springboot.redisson.distributeLockByAnno.anno.DistributedLock)")
+    @Pointcut("@annotation(com.ldg.study.springCloud.distribute.lock.redisson.byAnno.anno.DistributedLock)")
     public void distributedLockAspect() {
     }
 

@@ -1,7 +1,7 @@
 
-package com.ldg.study.springCloud.socket.netty.nio.websocket;
+package com.ldg.study.springCloud.socket.netty.nio.websocket.demo1;
 
-import com.ldg.study.springCloud.socket.netty.nio.websocket.initializer.WebSocketHelloWorldServerInitializer;
+import com.ldg.study.springCloud.socket.netty.nio.websocket.demo1.initializer.WebSocketHelloWorldServerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
