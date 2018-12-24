@@ -5,6 +5,9 @@
     <groupId>com.ldg</groupId>
     <artifactId>study-springCloud-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>../study-springCloud-tools</module>
+    </modules>
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
