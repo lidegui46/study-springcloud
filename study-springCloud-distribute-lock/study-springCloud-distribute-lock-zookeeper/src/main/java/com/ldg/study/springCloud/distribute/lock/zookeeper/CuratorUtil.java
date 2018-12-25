@@ -62,5 +62,7 @@ public class CuratorUtil {
                 }
             });
         }
+
+		//client.close();
 	}
 }
