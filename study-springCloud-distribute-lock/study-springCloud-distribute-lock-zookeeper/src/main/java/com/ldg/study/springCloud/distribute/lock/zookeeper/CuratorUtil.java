@@ -20,18 +20,18 @@ public class CuratorUtil {
 	
     public static void main(String[] args) {
 		//1、重试策略：初试时间为1s 重试3次
-		RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3); 
+		RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
 		//2、通过工厂创建连接
 		CuratorFramework client = CuratorFrameworkFactory.newClient(address, retryPolicy);
         //3、开启连接
         client.start();
         //4 分布式锁
-        final InterProcessMutex mutex = new InterProcessMutex(client, "/curator/lock"); 
+        final InterProcessMutex mutex = new InterProcessMutex(client, "/curator/lock");
         //读写锁
         //InterProcessReadWriteLock readWriteLock = new InterProcessReadWriteLock(client, "/readwriter");
-        
+
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(5);
-        
+
         for (int i = 0; i < 5; i++) {
             fixedThreadPool.submit(new Runnable() {
                 @Override
