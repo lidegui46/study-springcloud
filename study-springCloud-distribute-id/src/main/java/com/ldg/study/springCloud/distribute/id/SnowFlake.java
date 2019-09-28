@@ -2,15 +2,17 @@ package com.ldg.study.springCloud.distribute.id;
 
 /**
  * Twitter的分布式自增ID雪花算法snowflake
+ * <p>
+ * 参考地址：https://mp.weixin.qq.com/s/ZNSnRTmL0FX8THQBIA98Pw
  * Author:  ldg
  * Date:    2019/9/28 9:50
  * Desc:    this is file description
  */
 public class SnowFlake {
     /**
-     * 起始的时间戳
+     * 起始的时间戳，固定值，设置后不能随意变更
      */
-    private final static long START_STMP = 1480166465631L;
+    private final static long START_STMP = 1569675329728L;// System.currentTimeMillis();
 
     /**
      * 每一部分占用的位数
@@ -22,22 +24,31 @@ public class SnowFlake {
     /**
      * 每一部分的最大值
      */
-    private final static long MAX_DATACENTER_NUM = -1L ^ (-1L << DATACENTER_BIT);
-    private final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
-    private final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT);
+    private final static long MAX_DATACENTER_NUM = -1L ^ (-1L << DATACENTER_BIT); // 最大 数据中心 数量
+    private final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT); // 最大 工作机器 数量
+    private final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT); // 基本大 序列号
 
     /**
      * 每一部分向左的位移
      */
-    private final static long MACHINE_LEFT = SEQUENCE_BIT;
-    private final static long DATACENTER_LEFT = SEQUENCE_BIT + MACHINE_BIT;
-    private final static long TIMESTMP_LEFT = DATACENTER_LEFT + DATACENTER_BIT;
+    private final static long MACHINE_LEFT = SEQUENCE_BIT; // 机器 左移 bit
+    private final static long DATACENTER_LEFT = SEQUENCE_BIT + MACHINE_BIT; // 数据中心 左移 bit
+    private final static long TIMESTMP_LEFT = DATACENTER_LEFT + DATACENTER_BIT; // 时间戳 左移 bit
 
-    private long datacenterId;  //数据中心
-    private long machineId;     //机器标识
-    private long sequence = 0L; //序列号
-    private long lastStmp = -1L;//上一次时间戳
+    private final long datacenterId;  // 数据中心
+    private final long machineId;     // 机器标识
+    private volatile long sequence = 0L; //序列号
+    private volatile long lastStmp = -1L;//上一次时间戳
 
+    /**
+     * 雪花算法
+     * -----------------------------------------------
+     * 思考：数据中心 和 工作机器 在集群情况下怎么按实际情况设置？
+     * -----------------------------------------------
+     *
+     * @param datacenterId 数据中心数量
+     * @param machineId    机器数量
+     */
     public SnowFlake(long datacenterId, long machineId) {
         if (datacenterId > MAX_DATACENTER_NUM || datacenterId < 0) {
             throw new IllegalArgumentException("datacenterId can't be greater than MAX_DATACENTER_NUM or less than 0");
@@ -90,15 +101,5 @@ public class SnowFlake {
 
     private long getNewstmp() {
         return System.currentTimeMillis();
-    }
-
-    public static void main(String[] args) {
-        SnowFlake snowFlake = new SnowFlake(1, 1);
-
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
-            System.out.println(snowFlake.nextId());
-        }
-        System.out.println(System.currentTimeMillis() - start);
     }
 }
