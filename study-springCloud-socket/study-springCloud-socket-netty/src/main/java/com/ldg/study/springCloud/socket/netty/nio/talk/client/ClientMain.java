@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.talk.client;
+package com.ldg.study.springCloud.socket.netty.nio.talk.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;

@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.socketByClass.client;
+package com.ldg.study.springCloud.socket.netty.nio.socketByClass.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

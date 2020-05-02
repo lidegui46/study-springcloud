@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.redis;
+package com.ldg.study.springCloud.socket.netty.nio.redis;
 
 import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelDuplexHandler;

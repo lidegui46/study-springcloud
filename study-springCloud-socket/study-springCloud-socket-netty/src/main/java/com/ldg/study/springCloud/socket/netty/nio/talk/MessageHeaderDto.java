@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.talk;
+package com.ldg.study.springCloud.socket.netty.nio.talk;
 
 import lombok.Getter;
 import lombok.Setter;

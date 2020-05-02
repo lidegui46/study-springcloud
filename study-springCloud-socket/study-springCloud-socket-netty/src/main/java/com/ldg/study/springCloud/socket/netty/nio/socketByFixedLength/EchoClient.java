@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.socketByFixedLength;
+package com.ldg.study.springCloud.socket.netty.nio.socketByFixedLength;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;

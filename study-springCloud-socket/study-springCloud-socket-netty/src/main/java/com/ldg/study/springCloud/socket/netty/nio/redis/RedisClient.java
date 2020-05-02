@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.redis;
+package com.ldg.study.springCloud.socket.netty.nio.redis;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;

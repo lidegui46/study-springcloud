@@ -1,6 +1,6 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.socketByClass.client;
+package com.ldg.study.springCloud.socket.netty.nio.socketByClass.client;
 
-import com.ldg.study.springCloud.socket.netty.simpleExample.nio.socketByClass.dto.SubscribeReq;
+import com.ldg.study.springCloud.socket.netty.nio.socketByClass.dto.SubscribeReq;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 

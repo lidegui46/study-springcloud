@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.discardByBuffer.handler;
+package com.ldg.study.springCloud.socket.netty.nio.discardByBuffer.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;

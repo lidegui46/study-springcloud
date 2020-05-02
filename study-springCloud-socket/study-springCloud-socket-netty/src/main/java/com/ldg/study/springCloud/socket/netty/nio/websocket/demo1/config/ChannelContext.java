@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.websocket.demo1.config;
+package com.ldg.study.springCloud.socket.netty.nio.websocket.demo1.config;
 
 import io.netty.channel.Channel;
 

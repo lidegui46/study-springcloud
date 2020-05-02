@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.memcache;
+package com.ldg.study.springCloud.socket.netty.nio.memcache;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;

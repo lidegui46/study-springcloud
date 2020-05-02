@@ -1,6 +1,6 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.netty;
+package com.ldg.study.springCloud.socket.netty.netty;
 
-import com.ldg.study.springCloud.socket.netty.simpleExample.nio.discardByBuffer.handler.DiscardServerHandler;
+import com.ldg.study.springCloud.socket.netty.nio.discardByBuffer.handler.DiscardServerHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

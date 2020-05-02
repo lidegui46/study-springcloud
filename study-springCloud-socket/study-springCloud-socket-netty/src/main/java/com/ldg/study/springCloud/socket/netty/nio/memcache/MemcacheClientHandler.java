@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.memcache;
+package com.ldg.study.springCloud.socket.netty.nio.memcache;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

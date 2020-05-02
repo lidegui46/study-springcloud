@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.socketByClass.dto;
+package com.ldg.study.springCloud.socket.netty.nio.socketByClass.dto;
 
 import java.io.Serializable;
 

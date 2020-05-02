@@ -1,6 +1,6 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.echoByBuffer;
+package com.ldg.study.springCloud.socket.netty.nio.echoByBuffer;
 
-import com.ldg.study.springCloud.socket.netty.simpleExample.nio.echoByBuffer.handler.EchoServerHandler;
+import com.ldg.study.springCloud.socket.netty.nio.echoByBuffer.handler.EchoServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

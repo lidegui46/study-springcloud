@@ -1,6 +1,6 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.utils;
+package com.ldg.study.springCloud.socket.netty.utils;
 
-import com.ldg.study.springCloud.socket.netty.simpleExample.nio.talk.MessageHeaderDto;
+import com.ldg.study.springCloud.socket.netty.nio.talk.MessageHeaderDto;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 

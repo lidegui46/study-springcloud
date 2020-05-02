@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.discardByBuffer.handler;
+package com.ldg.study.springCloud.socket.netty.nio.discardByBuffer.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

@@ -1,7 +1,7 @@
 
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.http;
+package com.ldg.study.springCloud.socket.netty.nio.http;
 
-import com.ldg.study.springCloud.socket.netty.simpleExample.nio.http.initializer.HttpHelloWorldServerInitializer;
+import com.ldg.study.springCloud.socket.netty.nio.http.initializer.HttpHelloWorldServerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;

@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.websocket.demo2;
+package com.ldg.study.springCloud.socket.netty.nio.websocket.demo2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

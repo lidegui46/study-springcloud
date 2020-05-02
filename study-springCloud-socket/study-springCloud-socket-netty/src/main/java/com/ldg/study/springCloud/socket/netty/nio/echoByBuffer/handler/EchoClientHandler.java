@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.nio.echoByBuffer.handler;
+package com.ldg.study.springCloud.socket.netty.nio.echoByBuffer.handler;
 
 
 import io.netty.buffer.ByteBuf;

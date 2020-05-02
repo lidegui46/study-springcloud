@@ -1,4 +1,4 @@
-package com.ldg.study.springCloud.socket.netty.simpleExample.oio;
+package com.ldg.study.springCloud.socket.netty.oio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
